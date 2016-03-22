@@ -275,7 +275,6 @@
       
         
           <p>转自：<a href="http://blog.csdn.net/yangqingqo/article/details/48371123">http://blog.csdn.net/yangqingqo/article/details/48371123</a></p>
-<p><a href="https://developer.android.com/preview/features/runtime-permissions.html">https://developer.android.com/preview/features/runtime-permissions.html</a><br><a href="https://developer.android.com/preview/features/runtime-permissions.html#support-lib">https://developer.android.com/preview/features/runtime-permissions.html#support-lib</a><br><a href="https://developer.android.com/preview/features/runtime-permissions.html#normal">https://developer.android.com/preview/features/runtime-permissions.html#normal</a><br><a href="https://developer.android.com/reference/android/content/pm/PermissionInfo.html#PROTECTION_NORMAL">https://developer.android.com/reference/android/content/pm/PermissionInfo.html#PROTECTION_NORMAL</a></p>
 <h2 id="一些知识点"><a href="#一些知识点" class="headerlink" title="一些知识点"></a>一些知识点</h2><p>这个新的运行时权限仅当我们设置targetSdkVersion to 23（这意味着你已经在23上测试通过了）才起作用，当然还要是M系统的手机。app在6.0之前的设备依然使用旧的权限系统。如果app的targetSdkVersion 低于 23，那将被认为app没有用23新权限测试过，那将被继续使用旧有规则：用户在安装的时候不得不接受所有权限，安装后app就有了那些权限咯！然后app像以前一样奔跑！注意，此时用户依然可以取消已经同意的授权！用户取消授权时，android 6.0系统会警告，但这不妨碍用户取消授权。问题又来了，这时候你的app崩溃吗？善意的主把这事也告诉了android小组，当我们在targetSdkVersion 低于23的app调用一个需要权限的函数时，这个权限如果被用户取消授权了的话，不抛出异常。但是他将啥都不干，结果导致函数返回值是null或者0.<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/03/18/android6.0权限/#more" rel="contents">
