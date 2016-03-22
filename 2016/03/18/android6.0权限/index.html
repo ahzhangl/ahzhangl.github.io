@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="android,随笔," />
 
 
 
@@ -57,15 +57,22 @@
 
 
 
-<meta name="description" content="坚持 永恒">
-<meta property="og:type" content="website">
-<meta property="og:title" content="张石头的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="转自：http://blog.csdn.net/yangqingqo/article/details/48371123
+##官网资料
+https://developer.android.com/preview/features/runtime-permissions.htmlhttps://developer.android.com/preview/features/runtime-permiss">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 6.0 权限管理的学习">
+<meta property="og:url" content="http://yoursite.com/2016/03/18/android6.0权限/index.html">
 <meta property="og:site_name" content="张石头的博客">
-<meta property="og:description" content="坚持 永恒">
+<meta property="og:description" content="转自：http://blog.csdn.net/yangqingqo/article/details/48371123
+##官网资料
+https://developer.android.com/preview/features/runtime-permissions.htmlhttps://developer.android.com/preview/features/runtime-permiss">
+<meta property="og:updated_time" content="2016-03-22T04:22:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="张石头的博客">
-<meta name="twitter:description" content="坚持 永恒">
+<meta name="twitter:title" content="Android 6.0 权限管理的学习">
+<meta name="twitter:description" content="转自：http://blog.csdn.net/yangqingqo/article/details/48371123
+##官网资料
+https://developer.android.com/preview/features/runtime-permissions.htmlhttps://developer.android.com/preview/features/runtime-permiss">
 
 
 
@@ -83,7 +90,7 @@
   };
 </script>
 
-  <title> 张石头的博客 </title>
+  <title> Android 6.0 权限管理的学习 | 张石头的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -114,9 +121,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -193,9 +198,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -215,10 +220,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/03/18/android6.0权限/" itemprop="url">
-                  Android 6.0 权限管理的学习
-                </a>
+                Android 6.0 权限管理的学习
               
             
           </h1>
@@ -273,9 +275,7 @@
       
 
       
-        
-          
-            <p>转自：<a href="http://blog.csdn.net/yangqingqo/article/details/48371123" target="_blank" rel="external">http://blog.csdn.net/yangqingqo/article/details/48371123</a></p>
+        <p>转自：<a href="http://blog.csdn.net/yangqingqo/article/details/48371123" target="_blank" rel="external">http://blog.csdn.net/yangqingqo/article/details/48371123</a></p>
 <p>##官网资料</p>
 <p><a href="https://developer.android.com/preview/features/runtime-permissions.html" target="_blank" rel="external">https://developer.android.com/preview/features/runtime-permissions.html</a><br><a href="https://developer.android.com/preview/features/runtime-permissions.html#support-lib" target="_blank" rel="external">https://developer.android.com/preview/features/runtime-permissions.html#support-lib</a><br><a href="https://developer.android.com/preview/features/runtime-permissions.html#normal" target="_blank" rel="external">https://developer.android.com/preview/features/runtime-permissions.html#normal</a><br><a href="https://developer.android.com/reference/android/content/pm/PermissionInfo.html#PROTECTION_NORMAL" target="_blank" rel="external">https://developer.android.com/reference/android/content/pm/PermissionInfo.html#PROTECTION_NORMAL</a></p>
 <p>##一些知识点</p>
@@ -329,32 +329,39 @@
 <p> 权限组：<br>同一组的任何一个权限被授权了，其他权限也自动被授权。例如，一旦WRITE_CONTACTS被授权了，app也有READ_CONTACTS和GET_ACCOUNTS了。<br>参考： <a href="https://developer.android.com/reference/android/Manifest.permission_group.html" target="_blank" rel="external">https://developer.android.com/reference/android/Manifest.permission_group.html</a><br><a href="https://developer.android.com/guide/topics/security/permissions.html#normal-dangerous" target="_blank" rel="external">https://developer.android.com/guide/topics/security/permissions.html#normal-dangerous</a><br>dangerous permissions 被分入到 9 个权限组</p>
 <p>Permissions and permission groups.<br>Permission Group    Permissions<br>android.permission-group.CALENDAR<br>android.permission.READ_CALENDAR<br>android.permission.WRITE_CALENDAR<br>android.permission-group.CAMERA<br>android.permission.CAMERA<br>android.permission-group.CONTACTS<br>android.permission.READ_CONTACTS<br>android.permission.WRITE_CONTACTS<br>android.permission.GET_ACCOUNTS<br>android.permission-group.LOCATION<br>android.permission.ACCESS_FINE_LOCATION<br>android.permission.ACCESS_COARSE_LOCATION<br>android.permission-group.MICROPHONE<br>android.permission.RECORD_AUDIO<br>android.permission-group.PHONE<br>android.permission.READ_PHONE_STATE<br>android.permission.CALL_PHONE<br>android.permission.READ_CALL_LOG<br>android.permission.WRITE_CALL_LOG<br>com.android.voicemail.permission.ADD_VOICEMAIL<br>android.permission.USE_SIP<br>android.permission.PROCESS_OUTGOING_CALLS<br>android.permission-group.SENSORS<br>android.permission.BODY_SENSORS<br>android.permission-group.SMS<br>android.permission.SEND_SMS<br>android.permission.RECEIVE_SMS<br>android.permission.READ_SMS<br>android.permission.RECEIVE_WAP_PUSH<br>android.permission.RECEIVE_MMS<br>android.permission.READ_CELL_BROADCASTS<br>android.permission-group.STORAGE<br>android.permission.READ_EXTERNAL_STORAGE<br>android.permission.WRITE_EXTERNAL_STORAGE</p>
 
-          
-        
       
     </div>
 
     <div>
       
+        
+      
     </div>
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/android/" rel="tag">#android</a>
+          
+            <a href="/tags/随笔/" rel="tag">#随笔</a>
+          
+        </div>
       
 
       
+
       
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -362,6 +369,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/03/18/android6.0权限/"
+           data-title="Android 6.0 权限管理的学习" data-url="http://yoursite.com/2016/03/18/android6.0权限/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -381,8 +396,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/mypic.jpg"
@@ -427,6 +451,23 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
       
 
     </div>
@@ -518,6 +559,167 @@
 
 
   
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
 
   
 
