@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="张石头`NoteBook">
 <meta property="og:description" content="转自：http://blog.csdn.net/yangqingqo/article/details/48371123
 一些知识点这个新的运行时权限仅当我们设置targetSdkVersion to 23（这意味着你已经在23上测试通过了）才起作用，当然还要是M系统的手机。app在6.0之前的设备依然使用旧的权限系统。如果app的targetSdkVersion 低于 23，">
-<meta property="og:updated_time" content="2016-03-22T06:13:40.000Z">
+<meta property="og:updated_time" content="2016-03-22T06:29:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 6.0 权限管理的学习">
 <meta name="twitter:description" content="转自：http://blog.csdn.net/yangqingqo/article/details/48371123
@@ -273,7 +273,7 @@
 
       
         <p>转自：<a href="http://blog.csdn.net/yangqingqo/article/details/48371123" target="_blank" rel="external">http://blog.csdn.net/yangqingqo/article/details/48371123</a></p>
-<h2 id="一些知识点"><a href="#一些知识点" class="headerlink" title="一些知识点"></a>一些知识点</h2><p>这个新的运行时权限仅当我们设置targetSdkVersion to 23（这意味着你已经在23上测试通过了）才起作用，当然还要是M系统的手机。app在6.0之前的设备依然使用旧的权限系统。如果app的targetSdkVersion 低于 23，<a id="more"></a><br>那将被认为app没有用23新权限测试过，那将被继续使用旧有规则：用户在安装的时候不得不接受所有权限，安装后app就有了那些权限咯！然后app像以前一样奔跑！注意，此时用户依然可以取消已经同意的授权！用户取消授权时，android 6.0系统会警告，但这不妨碍用户取消授权。问题又来了，这时候你的app崩溃吗？善意的主把这事也告诉了android小组，当我们在targetSdkVersion 低于23的app调用一个需要权限的函数时，这个权限如果被用户取消授权了的话，不抛出异常。但是他将啥都不干，结果导致函数返回值是null或者0.<br>代码没有成功改为支持最新运行时权限的app,不要设置targetSdkVersion 23 发布，否则你就有麻烦了。只有当你测试过了，再改为targetSdkVersion 23 。<br><code>警告：现在你在android studio新建项目，targetSdkVersion 会自动设置为 23。如果你还没支持新运行时权限，我建议你首先把targetSdkVersion 降级到22</code><br>权限组：同一组的任何一个权限被授权了，其他权限也自动被授权。例如，一旦WRITE_CONTACTS被授权了，app也有READ_CONTACTS和GET_ACCOUNTS了。<br>参考：<a href="https://developer.android.com/reference/android/Manifest.permission_group.html" target="_blank" rel="external">https://developer.android.com/reference/android/Manifest.permission_group.html</a> <a href="https://developer.android.com/guide/topics/security/permissions.html#normal-dangerous" target="_blank" rel="external">https://developer.android.com/guide/topics/security/permissions.html#normal-dangerous</a></p>
+<h2 id="一些知识点"><a href="#一些知识点" class="headerlink" title="一些知识点"></a>一些知识点</h2><p>这个新的运行时权限仅当我们设置targetSdkVersion to 23（这意味着你已经在23上测试通过了）才起作用，当然还要是M系统的手机。app在6.0之前的设备依然使用旧的权限系统。如果app的targetSdkVersion 低于 23，<a id="more"></a>那将被认为app没有用23新权限测试过，那将被继续使用旧有规则：用户在安装的时候不得不接受所有权限，安装后app就有了那些权限咯！然后app像以前一样奔跑！注意，此时用户依然可以取消已经同意的授权！用户取消授权时，android 6.0系统会警告，但这不妨碍用户取消授权。问题又来了，这时候你的app崩溃吗？善意的主把这事也告诉了android小组，当我们在targetSdkVersion 低于23的app调用一个需要权限的函数时，这个权限如果被用户取消授权了的话，不抛出异常。但是他将啥都不干，结果导致函数返回值是null或者0.<br>代码没有成功改为支持最新运行时权限的app,不要设置targetSdkVersion 23 发布，否则你就有麻烦了。只有当你测试过了，再改为targetSdkVersion 23 。<br><code>警告：现在你在android studio新建项目，targetSdkVersion 会自动设置为 23。如果你还没支持新运行时权限，我建议你首先把targetSdkVersion 降级到22</code><br>权限组：同一组的任何一个权限被授权了，其他权限也自动被授权。例如，一旦WRITE_CONTACTS被授权了，app也有READ_CONTACTS和GET_ACCOUNTS了。<br>参考：<a href="https://developer.android.com/reference/android/Manifest.permission_group.html" target="_blank" rel="external">https://developer.android.com/reference/android/Manifest.permission_group.html</a> <a href="https://developer.android.com/guide/topics/security/permissions.html#normal-dangerous" target="_blank" rel="external">https://developer.android.com/guide/topics/security/permissions.html#normal-dangerous</a></p>
 <h2 id="新的权限管理的一些建议"><a href="#新的权限管理的一些建议" class="headerlink" title="新的权限管理的一些建议"></a>新的权限管理的一些建议</h2><p>只请求你需要的权限：减少请求的次数，或用intent来代替，让其他的应用来处理。防止一次请求太多的权限或请求次数太多，用户可能对你的应用感到厌烦。</p>
 <p> 在应用启动的时候，最好先请求应用必须的一些权限，不是必须的，在使用的时候，才请求（如一些附带权限）需要自己整理，管理一下自己应用的权限分类：</p>
 <blockquote>
